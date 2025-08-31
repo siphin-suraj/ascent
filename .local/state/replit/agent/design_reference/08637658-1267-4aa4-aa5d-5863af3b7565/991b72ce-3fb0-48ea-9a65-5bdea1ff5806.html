@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ascent Group - Riyadh's Trusted Wholesale & Retail Supplier</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                borderRadius: {
+                    lg: "var(--radius)",
+                    md: "calc(var(--radius) - 2px)",
+                    sm: "calc(var(--radius) - 4px)",
+                },
+                colors: {
+                    background: "var(--background)",
+                    foreground: "var(--foreground)",
+                    card: {
+                        DEFAULT: "var(--card)",
+                        foreground: "var(--card-foreground)",
+                    },
+                    primary: {
+                        DEFAULT: "var(--primary)",
+                        foreground: "var(--primary-foreground)",
+                    },
+                    secondary: {
+                        DEFAULT: "var(--secondary)",
+                        foreground: "var(--secondary-foreground)",
+                    },
+                    muted: {
+                        DEFAULT: "var(--muted)",
+                        foreground: "var(--muted-foreground)",
+                    },
+                    accent: {
+                        DEFAULT: "var(--accent)",
+                        foreground: "var(--accent-foreground)",
+                    },
+                    border: "var(--border)",
+                    input: "var(--input)",
+                    ring: "var(--ring)",
+                },
+                fontFamily: {
+                    sans: ["Inter", "system-ui", "sans-serif"],
+                }
+            },
+        }
+    };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --background: hsl(210 40% 98%);
+            --foreground: hsl(222.2 84% 4.9%);
+            --card: hsl(0 0% 100%);
+            --card-foreground: hsl(222.2 84% 4.9%);
+            --primary: hsl(221.2 83.2% 53.3%);
+            --primary-foreground: hsl(210 40% 98%);
+            --secondary: hsl(210 40% 96%);
+            --secondary-foreground: hsl(222.2 47.4% 11.2%);
+            --muted: hsl(210 40% 96%);
+            --muted-foreground: hsl(215.4 16.3% 46.9%);
+            --accent: hsl(43.3 96.4% 56.3%);
+            --accent-foreground: hsl(222.2 84% 4.9%);
+            --border: hsl(214.3 31.8% 91.4%);
+            --input: hsl(214.3 31.8% 91.4%);
+            --ring: hsl(221.2 83.2% 53.3%);
+            --radius: 0.75rem;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, hsl(221.2 83.2% 53.3% / 0.95), hsl(43.3 96.4% 56.3% / 0.85));
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-scroll {
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-scroll.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground font-sans">
+    <!-- @COMPONENT: Navigation [sticky header with responsive menu] -->
+    <nav class="navbar-scroll fixed top-0 left-0 right-0 z-50 px-4 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                    <span class="text-primary-foreground font-black text-xl">A</span>
+                </div>
+                <div>
+                    <h1 class="text-xl font-black text-primary">ASCENT GROUP</h1>
+                    <p class="text-xs text-muted-foreground">Riyadh, Saudi Arabia</p>
+                </div>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="font-semibold text-foreground hover:text-primary transition-colors">Home</a>
+                <a href="#services" class="font-semibold text-foreground hover:text-primary transition-colors">Services</a>
+                <a href="#about" class="font-semibold text-foreground hover:text-primary transition-colors">About</a>
+                <a href="#contact" class="font-semibold text-foreground hover:text-primary transition-colors">Contact</a>
+                <a href="tel:+966530286549" class="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+                    <i class="fas fa-phone mr-2"></i>Call Now
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden p-2 text-foreground" data-event="click:toggleMobileMenu">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="md:hidden mt-4 bg-card rounded-lg shadow-lg p-4 hidden" data-mobile-menu="true">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="font-semibold text-foreground hover:text-primary transition-colors">Home</a>
+                <a href="#services" class="font-semibold text-foreground hover:text-primary transition-colors">Services</a>
+                <a href="#about" class="font-semibold text-foreground hover:text-primary transition-colors">About</a>
+                <a href="#contact" class="font-semibold text-foreground hover:text-primary transition-colors">Contact</a>
+                <a href="tel:+966530286549" class="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold text-center">
+                    <i class="fas fa-phone mr-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+
+    <!-- @COMPONENT: HeroSection [main landing banner with company messaging] -->
+    <section id="home" class="relative min-h-screen flex items-center">
+        <!-- Modern industrial warehouse with busy workers and equipment -->
+        <div class="absolute inset-0 hero-bg"></div>
+        <div style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080'); background-size: cover; background-position: center;" class="absolute inset-0 opacity-30"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 py-32">
+            <div class="max-w-4xl">
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+                    <span class="text-white">Riyadh's</span> 
+                    <span class="gradient-text block">Trusted Supplier</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-white/90 mb-8 font-medium max-w-3xl">
+                    We take great pride in our strong network, punctual deliveries, and customer-focused approach. Our wholesale and retail solutions are designed to help businesses simplify procurement, reduce costs, and improve operational efficiency.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#services" class="bg-accent text-accent-foreground px-8 py-4 rounded-lg font-bold text-lg hover:bg-accent/90 transition-all hover-lift inline-flex items-center">
+                        <i class="fas fa-arrow-right mr-3"></i>Explore Services
+                    </a>
+                    <a href="https://wa.me/+966545825341" class="bg-white/20 glass-effect text-white border border-white/30 px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/30 transition-all inline-flex items-center">
+                        <i class="fab fa-whatsapp mr-3"></i>Chat With Us
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- @COMPONENT: CompanyHighlights [key statistics and value propositions] -->
+    <section class="py-20 bg-card">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-6xl font-black text-primary mb-4">13</div>
+                    <div class="text-lg font-semibold text-foreground">Years of Legacy</div>
+                    <p class="text-muted-foreground">Established since 2012</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-6xl font-black text-accent mb-4">100%</div>
+                    <div class="text-lg font-semibold text-foreground">Quality Assured</div>
+                    <p class="text-muted-foreground">Premium products only</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-6xl font-black text-primary mb-4">24/7</div>
+                    <div class="text-lg font-semibold text-foreground">Customer Support</div>
+                    <p class="text-muted-foreground">Always here to help</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-6xl font-black text-accent mb-4">1K+</div>
+                    <div class="text-lg font-semibold text-foreground">Happy Clients</div>
+                    <p class="text-muted-foreground">Trusted partnerships</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: CompanyHighlights -->
+
+    <!-- @COMPONENT: ServicesSection [main service offerings with visual cards] -->
+    <section id="services" class="py-20 bg-muted">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">
+                    <span class="gradient-text">Our Services</span>
+                </h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Comprehensive solutions for all your wholesale and retail needs
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1: Footwear -->
+                <div class="bg-card rounded-xl shadow-lg overflow-hidden hover-lift">
+                    <!-- Professional safety boots and industrial footwear display -->
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Professional industrial footwear" class="w-full h-48 object-cover" data-mock-image="true" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-shoe-prints text-primary text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold">Footwear</h3>
+                        </div>
+                        <p class="text-muted-foreground mb-4">Premium footwear for every industry - comfort and durability combined</p>
+                        <a href="#" class="text-primary font-semibold hover:text-primary/80 transition-colors">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Service Card 2: Plywood -->
+                <div class="bg-card rounded-xl shadow-lg overflow-hidden hover-lift">
+                    <!-- High-quality plywood sheets stacked in warehouse -->
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Premium plywood sheets" class="w-full h-48 object-cover" data-mock-image="true" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-layer-group text-primary text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold">Plywood</h3>
+                        </div>
+                        <p class="text-muted-foreground mb-4">Strong plywood built to last - premium quality for construction needs</p>
+                        <a href="#" class="text-primary font-semibold hover:text-primary/80 transition-colors">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Service Card 3: Travel & Tourism -->
+                <div class="bg-card rounded-xl shadow-lg overflow-hidden hover-lift">
+                    <!-- Beautiful desert landscape with modern city skyline -->
+                    <img src="https://pixabay.com/get/gcbdb2da77fc70ec88969177c6a056e89d451ee8556e59a2a297b7a998c0ede2b7b5faa20d15fc1fcb10dbd75de8b43879e9cd7821e702264cf625d8ac8414120_1280.jpg" alt="Saudi Arabia tourism destination" class="w-full h-48 object-cover" data-mock-image="true" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-plane text-primary text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold">Travel & Tourism</h3>
+                        </div>
+                        <p class="text-muted-foreground mb-4">Explore the world with our comprehensive travel solutions</p>
+                        <a href="#" class="text-primary font-semibold hover:text-primary/80 transition-colors">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Service Card 4: Safety Wear -->
+                <div class="bg-card rounded-xl shadow-lg overflow-hidden hover-lift">
+                    <!-- Industrial safety equipment and protective gear -->
+                    <img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Professional safety equipment" class="w-full h-48 object-cover" data-mock-image="true" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-hard-hat text-primary text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold">Safety Wear</h3>
+                        </div>
+                        <p class="text-muted-foreground mb-4">Complete safety solutions to protect your workforce</p>
+                        <a href="#" class="text-primary font-semibold hover:text-primary/80 transition-colors">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Service Card 5: Industrial Wear -->
+                <div class="bg-card rounded-xl shadow-lg overflow-hidden hover-lift">
+                    <!-- Workers in industrial uniforms in manufacturing setting -->
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Industrial workwear and uniforms" class="w-full h-48 object-cover" data-mock-image="true" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-tshirt text-primary text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold">Industrial Wear</h3>
+                        </div>
+                        <p class="text-muted-foreground mb-4">Durable industrial clothing for demanding work environments</p>
+                        <a href="#" class="text-primary font-semibold hover:text-primary/80 transition-colors">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Service Card 6: Logistics -->
+                <div class="bg-card rounded-xl shadow-lg overflow-hidden hover-lift">
+                    <!-- Modern logistics and transportation with trucks and warehouse -->
+                    <img src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Logistics and transportation services" class="w-full h-48 object-cover" data-mock-image="true" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-truck text-primary text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold">Logistics</h3>
+                        </div>
+                        <p class="text-muted-foreground mb-4">Efficient delivery solutions - on time, every time</p>
+                        <a href="#" class="text-primary font-semibold hover:text-primary/80 transition-colors">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ServicesSection -->
+
+    <!-- @COMPONENT: WhyChooseUs [key differentiators and value propositions] -->
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">
+                    Why Choose <span class="gradient-text">Ascent Group?</span>
+                </h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Efficiency, Quality & Reliability – The Ascent Group Promise
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-card p-8 rounded-xl shadow-lg hover-lift">
+                    <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-boxes text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Wide Range of Products</h3>
+                    <p class="text-muted-foreground">
+                        We offer an extensive selection of products to meet the diverse needs of our clients. From high-quality plywood and durable footwear to essential safety wear, industrial clothing, and office supplies.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-card p-8 rounded-xl shadow-lg hover-lift">
+                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-handshake text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Wholesale Expertise</h3>
+                    <p class="text-muted-foreground">
+                        With years of experience in the wholesale industry, we understand the unique demands of businesses. Our expertise allows us to provide tailored solutions for your specific requirements.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-card p-8 rounded-xl shadow-lg hover-lift">
+                    <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Quality Assurance</h3>
+                    <p class="text-muted-foreground">
+                        Quality is at the core of everything we do. We meticulously select and test our products to ensure they meet the highest standards. Our commitment to quality means you can trust every item.
+                    </p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-card p-8 rounded-xl shadow-lg hover-lift">
+                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Customer-Centric</h3>
+                    <p class="text-muted-foreground">
+                        Our clients are at the heart of our business. We strive to build long-lasting relationships by providing exceptional customer service and going the extra mile for satisfaction.
+                    </p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="bg-card p-8 rounded-xl shadow-lg hover-lift">
+                    <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-dollar-sign text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Competitive Pricing</h3>
+                    <p class="text-muted-foreground">
+                        We offer competitive pricing on all our products without compromising on quality. Our wholesale model allows us to pass on significant savings to our clients.
+                    </p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="bg-card p-8 rounded-xl shadow-lg hover-lift">
+                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-award text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Trusted Partner</h3>
+                    <p class="text-muted-foreground">
+                        We have built a reputation as a trusted partner for businesses across various industries. Our reliability, transparency, and commitment to excellence earn client loyalty.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: WhyChooseUs -->
+
+    <!-- @COMPONENT: AboutSection [company story and mission] -->
+    <section id="about" class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-black mb-8">
+                        <span class="gradient-text">Our Story</span>
+                    </h2>
+                    <div class="space-y-6">
+                        <p class="text-lg text-muted-foreground leading-relaxed">
+                            Established in 2012, Ascent Group has become a prominent name in the industrial supply sector, particularly in commercial construction. We distinguish ourselves through our unwavering dedication to quality and continuous innovation.
+                        </p>
+                        <p class="text-lg text-muted-foreground leading-relaxed">
+                            We collaborate with trusted manufacturers and suppliers to ensure premium-quality products at competitive prices. Our strong network enables us to deliver excellence on time, every time.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-8 space-y-6">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3 text-primary">Our Vision</h3>
+                            <p class="text-muted-foreground">To be the leading wholesale and retail supplier in the region, known for our exceptional quality, reliability, and customer service.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3 text-accent">Our Mission</h3>
+                            <p class="text-muted-foreground">To help businesses simplify procurement, reduce costs, and improve operational efficiency through our comprehensive product range and customer-focused approach.</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="inline-flex items-center mt-8 bg-primary text-primary-foreground px-8 py-4 rounded-lg font-bold hover:bg-primary/90 transition-colors">
+                        Learn About Us <i class="fas fa-arrow-right ml-3"></i>
+                    </a>
+                </div>
+                
+                <div class="space-y-8">
+                    <!-- Team collaboration in modern office environment -->
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500" alt="Professional business team collaboration" class="rounded-xl shadow-lg w-full" data-mock-image="true" />
+                    
+                    <!-- Modern warehouse facility with organized inventory -->
+                    <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300" alt="Modern warehouse facility" class="rounded-xl shadow-lg w-full" data-mock-image="true" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: AboutSection -->
+
+    <!-- @COMPONENT: PartnersSection [trusted partner logos] -->
+    <section class="py-20 bg-muted">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black mb-6">Our <span class="gradient-text">Partners</span></h2>
+                <p class="text-xl text-muted-foreground">Trusted relationships with leading manufacturers and suppliers</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60">
+                <!-- Partner logos would go here -->
+                <!-- @MAP: partners.map(partner => ( -->
+                <div class="bg-card p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-mock="true">
+                    <div class="w-full h-16 bg-muted rounded flex items-center justify-center">
+                        <i class="fas fa-building text-3xl text-muted-foreground"></i>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+                <div class="bg-card p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-mock="true">
+                    <div class="w-full h-16 bg-muted rounded flex items-center justify-center">
+                        <i class="fas fa-industry text-3xl text-muted-foreground"></i>
+                    </div>
+                </div>
+                <div class="bg-card p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-mock="true">
+                    <div class="w-full h-16 bg-muted rounded flex items-center justify-center">
+                        <i class="fas fa-tools text-3xl text-muted-foreground"></i>
+                    </div>
+                </div>
+                <div class="bg-card p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-mock="true">
+                    <div class="w-full h-16 bg-muted rounded flex items-center justify-center">
+                        <i class="fas fa-warehouse text-3xl text-muted-foreground"></i>
+                    </div>
+                </div>
+                <div class="bg-card p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-mock="true">
+                    <div class="w-full h-16 bg-muted rounded flex items-center justify-center">
+                        <i class="fas fa-cogs text-3xl text-muted-foreground"></i>
+                    </div>
+                </div>
+                <div class="bg-card p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-mock="true">
+                    <div class="w-full h-16 bg-muted rounded flex items-center justify-center">
+                        <i class="fas fa-hammer text-3xl text-muted-foreground"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: PartnersSection -->
+
+    <!-- @COMPONENT: ContactSection [comprehensive contact information] -->
+    <section id="contact" class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">
+                    Get In <span class="gradient-text">Touch</span>
+                </h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Ready to start your project? Contact us today for a consultation
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div class="bg-card p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-phone text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Phone</h4>
+                                    <p class="text-muted-foreground" data-bind="contact.phone">+966 53 028 6549</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-envelope text-accent"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Email</h4>
+                                    <p class="text-muted-foreground" data-bind="contact.email">official@ascentgroupsa.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Address</h4>
+                                    <p class="text-muted-foreground" data-bind="contact.address">
+                                        SHEHAB AL DINE AL QALQASHANDI,<br>
+                                        AL FAISALIYYAH, RIYADH 12891
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 pt-8 border-t border-border">
+                            <h4 class="font-semibold mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-primary-foreground hover:bg-primary/90 transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-primary-foreground hover:bg-primary/90 transition-colors">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-primary-foreground hover:bg-primary/90 transition-colors">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-primary-foreground hover:bg-primary/90 transition-colors">
+                                    <i class="fab fa-snapchat"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-card p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6">Send us a Message</h3>
+                    <form class="space-y-6" data-implementation="Should integrate with contact form API">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="firstName" class="block text-sm font-semibold mb-2">First Name</label>
+                                <input type="text" id="firstName" class="w-full p-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all" placeholder="Your first name" data-mock="true">
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-semibold mb-2">Last Name</label>
+                                <input type="text" id="lastName" class="w-full p-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all" placeholder="Your last name" data-mock="true">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-semibold mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full p-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all" placeholder="your.email@company.com" data-mock="true">
+                        </div>
+                        
+                        <div>
+                            <label for="company" class="block text-sm font-semibold mb-2">Company</label>
+                            <input type="text" id="company" class="w-full p-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all" placeholder="Your company name" data-mock="true">
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block text-sm font-semibold mb-2">Service Interest</label>
+                            <select id="service" class="w-full p-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all" data-mock="true">
+                                <option value="">Select a service</option>
+                                <option value="footwear">Footwear</option>
+                                <option value="plywood">Plywood</option>
+                                <option value="travel">Travel & Tourism</option>
+                                <option value="safety">Safety Wear</option>
+                                <option value="industrial">Industrial Wear</option>
+                                <option value="logistics">Logistics</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-semibold mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full p-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all resize-none" placeholder="Tell us about your requirements..." data-mock="true"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary text-primary-foreground py-4 rounded-lg font-bold text-lg hover:bg-primary/90 transition-colors" data-event="click:handleContactForm">
+                            <i class="fas fa-paper-plane mr-3"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ContactSection -->
+
+    <!-- @COMPONENT: CallToAction [final conversion section] -->
+    <section class="py-20 bg-primary text-primary-foreground relative overflow-hidden">
+        <!-- Modern industrial equipment and machinery -->
+        <div style="background-image: url('https://pixabay.com/get/g830e0877a21dada5a1155ad2d21370f82503907503dea1585082de897bfbdea1e9ffba5012932c2797c328bed4c5e55e841a41bda5cd99f6fed1212a1987f95a_1280.jpg'); background-size: cover; background-position: center;" class="absolute inset-0 opacity-20"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-black mb-6">
+                Ready to Get Started?
+            </h2>
+            <p class="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
+                Join hundreds of satisfied businesses who trust Ascent Group for their wholesale and retail needs
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/+966545825341" class="bg-accent text-accent-foreground px-8 py-4 rounded-lg font-bold text-lg hover:bg-accent/90 transition-all hover-lift inline-flex items-center justify-center">
+                    <i class="fab fa-whatsapp mr-3"></i>Chat With Us
+                </a>
+                <a href="tel:+966530286549" class="bg-white/20 glass-effect border border-white/30 px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/30 transition-all inline-flex items-center justify-center">
+                    <i class="fas fa-phone mr-3"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: CallToAction -->
+
+    <!-- @COMPONENT: Footer [comprehensive footer with links and contact info] -->
+    <footer class="bg-foreground text-background py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Company Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                            <span class="text-primary-foreground font-black text-xl">A</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-black">ASCENT GROUP</h3>
+                            <p class="text-sm opacity-70">Riyadh, Saudi Arabia</p>
+                        </div>
+                    </div>
+                    <p class="text-sm opacity-70 leading-relaxed">
+                        Your trusted wholesale & retail supplier since 2012. Quality products, competitive prices, exceptional service.
+                    </p>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm opacity-70">
+                        <li><a href="#" class="hover:text-accent transition-colors">Footwear</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Plywood</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Travel & Tourism</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Safety Wear</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Industrial Wear</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Logistics</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm opacity-70">
+                        <li><a href="#home" class="hover:text-accent transition-colors">Home</a></li>
+                        <li><a href="#services" class="hover:text-accent transition-colors">Services</a></li>
+                        <li><a href="#about" class="hover:text-accent transition-colors">Our Story</a></li>
+                        <li><a href="#contact" class="hover:text-accent transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Terms</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Us -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Us</h4>
+                    <div class="space-y-3 text-sm opacity-70">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-accent"></i>
+                            <span data-bind="contact.phone">+966 53 028 6549</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-accent"></i>
+                            <span data-bind="contact.email">official@ascentgroupsa.com</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-accent mt-1"></i>
+                            <span data-bind="contact.address">SHEHAB AL DINE AL QALQASHANDI,<br>AL FAISALIYYAH, RIYADH 12891</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h5 class="font-semibold mb-3">Follow Us</h5>
+                        <div class="flex space-x-3">
+                            <a href="#" class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-accent-foreground hover:bg-accent/90 transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-accent-foreground hover:bg-accent/90 transition-colors">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-accent-foreground hover:bg-accent/90 transition-colors">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-accent-foreground hover:bg-accent/90 transition-colors">
+                                <i class="fab fa-snapchat"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 pt-8 mt-12 text-center">
+                <p class="text-sm opacity-70">
+                    © 2024 All Rights Reserved by <span class="font-bold text-accent">ASCENT GROUP SA</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        // TODO: Implement actual navigation, form handling, and mobile menu functionality
+        (function() {
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar-scroll');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('[data-event="click:toggleMobileMenu"]');
+            const mobileMenu = document.querySelector('[data-mobile-menu="true"]');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
