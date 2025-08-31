@@ -4,38 +4,38 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(210, 40%, 98%);
-  --foreground: hsl(222.2, 84%, 4.9%);
+  --background: hsl(0, 0%, 98%);
+  --foreground: hsl(210, 75%, 8%);
   --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(222.2, 84%, 4.9%);
+  --card-foreground: hsl(210, 75%, 8%);
   --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(222.2, 84%, 4.9%);
-  --primary: hsl(221.2, 83.2%, 53.3%);
-  --primary-foreground: hsl(210, 40%, 98%);
-  --secondary: hsl(210, 40%, 96%);
-  --secondary-foreground: hsl(222.2, 47.4%, 11.2%);
-  --muted: hsl(210, 40%, 96%);
-  --muted-foreground: hsl(215.4, 16.3%, 46.9%);
-  --accent: hsl(43.3, 96.4%, 56.3%);
-  --accent-foreground: hsl(222.2, 84%, 4.9%);
+  --popover-foreground: hsl(210, 75%, 8%);
+  --primary: hsl(210, 75%, 8%);
+  --primary-foreground: hsl(0, 0%, 98%);
+  --secondary: hsl(0, 0%, 96%);
+  --secondary-foreground: hsl(210, 75%, 8%);
+  --muted: hsl(0, 0%, 96%);
+  --muted-foreground: hsl(0, 2%, 35%);
+  --accent: hsl(28, 40%, 60%);
+  --accent-foreground: hsl(0, 0%, 98%);
   --destructive: hsl(356.3, 90.6%, 54.3%);
   --destructive-foreground: hsl(0, 0%, 100%);
   --border: hsl(214.3, 31.8%, 91.4%);
   --input: hsl(214.3, 31.8%, 91.4%);
-  --ring: hsl(221.2, 83.2%, 53.3%);
-  --chart-1: hsl(221.2, 83.2%, 53.3%);
-  --chart-2: hsl(159.7, 100%, 36.1%);
-  --chart-3: hsl(43.3, 96.4%, 56.3%);
+  --ring: hsl(210, 75%, 8%);
+  --chart-1: hsl(210, 75%, 8%);
+  --chart-2: hsl(28, 40%, 60%);
+  --chart-3: hsl(0, 2%, 35%);
   --chart-4: hsl(147.1, 78.5%, 41.9%);
   --chart-5: hsl(341.5, 75.2%, 50.9%);
   --sidebar: hsl(0, 0%, 100%);
-  --sidebar-foreground: hsl(222.2, 84%, 4.9%);
-  --sidebar-primary: hsl(221.2, 83.2%, 53.3%);
-  --sidebar-primary-foreground: hsl(210, 40%, 98%);
-  --sidebar-accent: hsl(210, 40%, 96%);
-  --sidebar-accent-foreground: hsl(222.2, 47.4%, 11.2%);
+  --sidebar-foreground: hsl(210, 75%, 8%);
+  --sidebar-primary: hsl(210, 75%, 8%);
+  --sidebar-primary-foreground: hsl(0, 0%, 98%);
+  --sidebar-accent: hsl(0, 0%, 96%);
+  --sidebar-accent-foreground: hsl(210, 75%, 8%);
   --sidebar-border: hsl(214.3, 31.8%, 91.4%);
-  --sidebar-ring: hsl(221.2, 83.2%, 53.3%);
+  --sidebar-ring: hsl(210, 75%, 8%);
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-serif: 'Lora', Georgia, serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -45,33 +45,33 @@
 }
 
 .dark {
-  --background: hsl(222.2, 84%, 4.9%);
-  --foreground: hsl(210, 40%, 98%);
-  --card: hsl(222.2, 47.4%, 11.2%);
-  --card-foreground: hsl(210, 40%, 98%);
-  --popover: hsl(222.2, 47.4%, 11.2%);
-  --popover-foreground: hsl(210, 40%, 98%);
-  --primary: hsl(221.2, 83.2%, 53.3%);
-  --primary-foreground: hsl(210, 40%, 98%);
-  --secondary: hsl(217.2, 32.6%, 17.5%);
-  --secondary-foreground: hsl(210, 40%, 98%);
-  --muted: hsl(217.2, 32.6%, 17.5%);
-  --muted-foreground: hsl(215, 20.2%, 65.1%);
-  --accent: hsl(43.3, 96.4%, 56.3%);
-  --accent-foreground: hsl(222.2, 84%, 4.9%);
+  --background: hsl(210, 75%, 8%);
+  --foreground: hsl(0, 0%, 98%);
+  --card: hsl(210, 75%, 12%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --popover: hsl(210, 75%, 12%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --primary: hsl(28, 40%, 60%);
+  --primary-foreground: hsl(210, 75%, 8%);
+  --secondary: hsl(210, 75%, 15%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --muted: hsl(210, 75%, 15%);
+  --muted-foreground: hsl(0, 2%, 65%);
+  --accent: hsl(28, 40%, 60%);
+  --accent-foreground: hsl(210, 75%, 8%);
   --destructive: hsl(356.3, 90.6%, 54.3%);
   --destructive-foreground: hsl(0, 0%, 100%);
-  --border: hsl(217.2, 32.6%, 17.5%);
-  --input: hsl(217.2, 32.6%, 17.5%);
-  --ring: hsl(221.2, 83.2%, 53.3%);
-  --sidebar: hsl(222.2, 47.4%, 11.2%);
-  --sidebar-foreground: hsl(210, 40%, 98%);
-  --sidebar-primary: hsl(221.2, 83.2%, 53.3%);
-  --sidebar-primary-foreground: hsl(210, 40%, 98%);
-  --sidebar-accent: hsl(217.2, 32.6%, 17.5%);
-  --sidebar-accent-foreground: hsl(210, 40%, 98%);
-  --sidebar-border: hsl(217.2, 32.6%, 17.5%);
-  --sidebar-ring: hsl(221.2, 83.2%, 53.3%);
+  --border: hsl(210, 75%, 15%);
+  --input: hsl(210, 75%, 15%);
+  --ring: hsl(28, 40%, 60%);
+  --sidebar: hsl(210, 75%, 12%);
+  --sidebar-foreground: hsl(0, 0%, 98%);
+  --sidebar-primary: hsl(28, 40%, 60%);
+  --sidebar-primary-foreground: hsl(210, 75%, 8%);
+  --sidebar-accent: hsl(210, 75%, 15%);
+  --sidebar-accent-foreground: hsl(0, 0%, 98%);
+  --sidebar-border: hsl(210, 75%, 15%);
+  --sidebar-ring: hsl(28, 40%, 60%);
 }
 
 @layer base {
@@ -94,7 +94,7 @@
   }
   
   .hero-bg {
-    background: linear-gradient(135deg, hsl(221.2, 83.2%, 53.3%, 0.95), hsl(43.3, 96.4%, 56.3%, 0.85));
+    background: linear-gradient(135deg, hsl(210, 75%, 8%, 0.95), hsl(28, 40%, 60%, 0.85));
   }
   
   .glass-effect {
