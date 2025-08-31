@@ -33,10 +33,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-3" data-testid="link-logo">
           <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-primary-foreground font-black text-xl">A</span>
+            <span className="text-primary-foreground font-black text-xl">GU</span>
           </div>
           <div>
-            <h1 className="text-xl font-black text-primary">ASCENT GROUP</h1>
+            <h1 className="text-xl font-black text-primary">Golden Unique</h1>
             <p className="text-xs text-muted-foreground">Riyadh, Saudi Arabia</p>
           </div>
         </Link>
