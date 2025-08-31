@@ -50,15 +50,15 @@ export default function WhyChooseUs() {
     <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black mb-6" data-testid="text-why-choose-title">
-            Why Choose <span className="gradient-text">Ascent Group?</span>
+          <h2 className="text-4xl md:text-5xl font-heading font-black mb-6 slide-up" data-testid="text-why-choose-title">
+            WHY CHOOSE <span className="gradient-text">ASCENT GROUP?</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto" data-testid="text-why-choose-subtitle">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto slide-up" data-testid="text-why-choose-subtitle" style={{ animationDelay: '0.2s' }}>
             Efficiency, Quality & Reliability – The Ascent Group Promise
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 stagger-children">
           {features.map((feature, index) => (
             <Card key={feature.title} className="hover-lift" data-testid={`card-feature-${index}`}>
               <CardContent className="p-8">

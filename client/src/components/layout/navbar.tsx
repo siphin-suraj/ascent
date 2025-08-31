@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
 
 export default function Navbar() {
   const [location] = useLocation();
@@ -66,39 +65,49 @@ export default function Navbar() {
           </Button>
         </div>
 
-        {/* Mobile Menu */}
-        <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-          <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon" data-testid="button-mobile-menu">
-              <Menu className="h-6 w-6" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-64">
-            <div className="flex flex-col space-y-4 mt-8">
-              {navigation.map((item) => (
-                <Link key={item.name} href={item.href}>
-                  <a
-                    className={`font-semibold text-lg transition-colors block py-2 ${
-                      location === item.href
-                        ? "text-primary"
-                        : "text-foreground hover:text-primary"
-                    }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    data-testid={`link-mobile-${item.name.toLowerCase()}`}
-                  >
-                    {item.name}
-                  </a>
-                </Link>
-              ))}
-              <Button asChild className="mt-4 w-full" data-testid="button-mobile-call">
-                <a href="tel:+966530286549">
-                  <Phone className="mr-2 h-4 w-4" />
-                  Call Now
+        {/* Mobile Hamburger Menu */}
+        <div className="md:hidden">
+          <button
+            className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            data-testid="button-mobile-menu"
+            aria-label="Toggle mobile menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        {/* Mobile Menu Overlay */}
+        <div className={`fixed inset-0 z-40 bg-primary/95 backdrop-blur-lg transition-all duration-300 md:hidden ${
+          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        }`}>
+          <div className="flex flex-col items-center justify-center h-full space-y-8">
+            {navigation.map((item, index) => (
+              <Link key={item.name} href={item.href}>
+                <a
+                  className={`font-heading text-3xl transition-all duration-300 hover:scale-110 ${
+                    location === item.href
+                      ? "text-accent"
+                      : "text-primary-foreground hover:text-accent"
+                  } ${isMobileMenuOpen ? 'slide-in-left' : ''}`}
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  data-testid={`link-mobile-${item.name.toLowerCase()}`}
+                >
+                  {item.name}
                 </a>
-              </Button>
-            </div>
-          </SheetContent>
-        </Sheet>
+              </Link>
+            ))}
+            <Button asChild className="mt-8 text-lg px-8 py-4 scale-in" data-testid="button-mobile-call">
+              <a href="tel:+966530286549">
+                <Phone className="mr-2 h-5 w-5" />
+                Call Now
+              </a>
+            </Button>
+          </div>
+        </div>
       </div>
     </nav>
   );

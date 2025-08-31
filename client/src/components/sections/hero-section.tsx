@@ -17,14 +17,14 @@ export default function HeroSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-32">
         <div className="max-w-4xl">
-          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight" data-testid="text-hero-title">
-            <span className="text-white">Riyadh's</span>{" "}
-            <span className="gradient-text block">Trusted Supplier</span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black mb-6 leading-tight slide-in-left" data-testid="text-hero-title">
+            <span className="text-white">RIYADH'S</span>{" "}
+            <span className="gradient-text block">TRUSTED SUPPLIER</span>
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 font-medium max-w-3xl" data-testid="text-hero-description">
+          <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 font-medium max-w-3xl slide-up" data-testid="text-hero-description" style={{ animationDelay: '0.3s' }}>
             We take great pride in our strong network, punctual deliveries, and customer-focused approach. Our wholesale and retail solutions are designed to help businesses simplify procurement, reduce costs, and improve operational efficiency.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 scale-in" style={{ animationDelay: '0.6s' }}>
             <Button 
               asChild 
               size="lg" 
@@ -53,7 +53,7 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce pulse-slow">
         <ChevronDown className="h-8 w-8" />
       </div>
     </section>

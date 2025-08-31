@@ -51,15 +51,15 @@ export default function ServicesGrid() {
     <section className="py-20 bg-muted">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black mb-6" data-testid="text-services-title">
-            <span className="gradient-text">Our Services</span>
+          <h2 className="text-4xl md:text-5xl font-heading font-black mb-6 slide-up" data-testid="text-services-title">
+            <span className="gradient-text">OUR SERVICES</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto" data-testid="text-services-subtitle">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto slide-up" data-testid="text-services-subtitle" style={{ animationDelay: '0.2s' }}>
             Comprehensive solutions for all your wholesale and retail needs
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 stagger-children">
           {services.map((service, index) => (
             <Card key={service.name} className="overflow-hidden hover-lift" data-testid={`card-service-${index}`}>
               <img
